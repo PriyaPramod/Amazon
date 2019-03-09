@@ -1,0 +1,128 @@
+{
+  "uid" : "c0a89ee83d8e026f",
+  "name" : "test_sample[Chrome]",
+  "fullName" : "test_scripts.test_modules#test_sample[Chrome]",
+  "historyId" : "ba6bb1ed0a145b199722d0279f99c68c",
+  "time" : {
+    "start" : 1551517713829,
+    "stop" : 1551517713829,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "set_environ",
+    "time" : {
+      "start" : 1551517614115,
+      "stop" : 1551517614116,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "set_up_test",
+    "time" : {
+      "start" : 1551517614116,
+      "stop" : 1551517713826,
+      "duration" : 99710
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "233755e4db4912c6",
+      "name" : "log",
+      "source" : "233755e4db4912c6.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "50bb1e6e1d89aa0c",
+      "name" : "stdout",
+      "source" : "50bb1e6e1d89aa0c.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "468f45fa32bc60e8",
+      "name" : "stderr",
+      "source" : "468f45fa32bc60e8.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 3,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "set_up_test::0",
+    "time" : {
+      "start" : 1551517713831,
+      "stop" : 1551517714988,
+      "duration" : 1157
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_scripts"
+  }, {
+    "name" : "suite",
+    "value" : "test_modules"
+  }, {
+    "name" : "host",
+    "value" : "TY-Pramod-Personal"
+  }, {
+    "name" : "thread",
+    "value" : "20732-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_scripts.test_modules"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "set_up_test",
+    "value" : "'Chrome'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c0a89ee83d8e026f.json",
+  "parameterValues" : [ "'Chrome'" ]
+}

@@ -1,0 +1,17 @@
+[ {
+  "uid" : "210fc3dfe0b03324",
+  "name" : "test_sample[ff]",
+  "time" : { },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "c0a89ee83d8e026f",
+  "name" : "test_sample[Chrome]",
+  "time" : {
+    "start" : 1551517713829,
+    "stop" : 1551517713829,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

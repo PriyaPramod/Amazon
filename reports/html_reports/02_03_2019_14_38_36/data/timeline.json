@@ -1,0 +1,37 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "TY-Pramod-Personal",
+    "children" : [ {
+      "name" : "10516-MainThread",
+      "children" : [ {
+        "name" : "test_sample[ff]",
+        "uid" : "210fc3dfe0b03324",
+        "parentUid" : "2b125653f92b937fc6c9fd68da00de0f",
+        "status" : "broken",
+        "time" : { },
+        "flaky" : false,
+        "parameters" : [ "'ff'" ]
+      } ],
+      "uid" : "2b125653f92b937fc6c9fd68da00de0f"
+    }, {
+      "name" : "20732-MainThread",
+      "children" : [ {
+        "name" : "test_sample[Chrome]",
+        "uid" : "c0a89ee83d8e026f",
+        "parentUid" : "b28dc435daac7da1c04d7bf7c06646b8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1551517713829,
+          "stop" : 1551517713829,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "'Chrome'" ]
+      } ],
+      "uid" : "b28dc435daac7da1c04d7bf7c06646b8"
+    } ],
+    "uid" : "5c13f69d55b753c6c5217a9eaf9294e7"
+  } ]
+}

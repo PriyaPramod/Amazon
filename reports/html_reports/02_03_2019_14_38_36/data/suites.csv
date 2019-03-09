@@ -1,0 +1,3 @@
+"Status","Name","Duration in ms","Description"
+"broken","test_scripts.test_modules#test_sample[ff]","",""
+"passed","test_scripts.test_modules#test_sample[Chrome]","0",""
