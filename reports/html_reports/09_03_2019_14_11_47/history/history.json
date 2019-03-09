@@ -1,0 +1,53 @@
+{
+  "ba6bb1ed0a145b199722d0279f99c68c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c0a89ee83d8e026f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1551517713829,
+        "stop" : 1551517713829,
+        "duration" : 0
+      }
+    } ]
+  },
+  "ff45adb085106a0a05161cf4ab106b20" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "210fc3dfe0b03324",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: connection refused",
+      "time" : { }
+    } ]
+  },
+  "c15482a2ec5559c6a667eef4d0056b78" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "2697a0f4253536a5",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: connection refused",
+      "time" : { }
+    } ]
+  }
+}

@@ -9,6 +9,7 @@ def get_total_rows(excel_path, sheet):
     rows = sheet.shape[0]
     return rows
 
+
 def read_excel_data(excel_path, sheet, row_number, column_name):
     sheet = get_sheet(excel_path, sheet)
     data = sheet.loc[row_number, column_name]

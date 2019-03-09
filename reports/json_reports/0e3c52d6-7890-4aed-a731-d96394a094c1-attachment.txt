@@ -1,0 +1,2 @@
+Unable to enter the value to the web element:  <class 'Exception'>
+Web element not found:  <class 'selenium.common.exceptions.NoSuchElementException'>
