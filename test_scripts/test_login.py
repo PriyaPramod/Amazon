@@ -17,7 +17,7 @@ def test_tc001_invalid_login(request):
     actual_user_error = login.get_login_error_message()
     
     assert expected_user_error == actual_user_error, "Actual error and expected error message for user name text box is not matching"
-    login.set_user_name(str(valid_user_name))
+    login.set_user_name(valid_user_name)
     
     login.set_password(invalid_password)
     actual_pass_error = login.get_login_error_message()
