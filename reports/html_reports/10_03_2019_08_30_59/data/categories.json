@@ -1,0 +1,21 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.WebDriverException: Message: connection refused",
+      "children" : [ {
+        "name" : "test_tc001_invalid_login[ff]",
+        "uid" : "fafc42387827b902",
+        "parentUid" : "c4d62ffe684cc7534fe6e7ab8d6a75d3",
+        "status" : "broken",
+        "time" : { },
+        "flaky" : false,
+        "parameters" : [ "'ff'" ]
+      } ],
+      "uid" : "c4d62ffe684cc7534fe6e7ab8d6a75d3"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

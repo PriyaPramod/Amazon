@@ -1,0 +1,17 @@
+[ {
+  "uid" : "305952fcaefa91f8",
+  "name" : "test_tc001_invalid_login[Chrome]",
+  "time" : {
+    "start" : 1552187835709,
+    "stop" : 1552187846302,
+    "duration" : 10593
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7bf1235e4fea8284",
+  "name" : "test_tc001_invalid_login[ff]",
+  "time" : { },
+  "status" : "broken",
+  "severity" : "normal"
+} ]

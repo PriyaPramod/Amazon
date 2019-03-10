@@ -1,0 +1,119 @@
+{
+  "uid" : "32d1b627dc50b766",
+  "name" : "test_tc001_invalid_login[ff]",
+  "fullName" : "test_scripts.test_login#test_tc001_invalid_login[ff]",
+  "historyId" : "c15482a2ec5559c6a667eef4d0056b78",
+  "time" : { },
+  "status" : "broken",
+  "statusMessage" : "selenium.common.exceptions.WebDriverException: Message: connection refused",
+  "statusTrace" : "request = <SubRequest 'set_up_test' for <Function test_tc001_invalid_login[ff]>>\n\n    @pytest.fixture(scope=\"function\", params=['Chrome','ff'], autouse=True)\n    def set_up_test(request):\n        url = helpers.get_url()\n>       web_driver = webdriver_manager.create_driver(request.param, url)\n\nconftest.py:27: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsource\\utilities\\webdriver_manager.py:11: in create_driver\n    driver = webdriver.Firefox(executable_path=const.FF_VALUE)\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\firefox\\webdriver.py:174: in __init__\n    keep_alive=True)\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:157: in __init__\n    self.start_session(capabilities, browser_profile)\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:252: in start_session\n    response = self.execute(Command.NEW_SESSION, parameters)\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:321: in execute\n    self.error_handler.check_response(response)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x08DBBD50>\nresponse = {'status': 500, 'value': '{\"value\":{\"error\":\"unknown error\",\"message\":\"connection refused\",\"stacktrace\":\"\"}}'}\n\n    def check_response(self, response):\n        \"\"\"\n        Checks that a JSON response from the WebDriver does not have an error.\n    \n        :Args:\n         - response - The JSON response from the WebDriver server as a dictionary\n           object.\n    \n        :Raises: If the response contains an error message.\n        \"\"\"\n        status = response.get('status', None)\n        if status is None or status == ErrorCode.SUCCESS:\n            return\n        value = None\n        message = response.get(\"message\", \"\")\n        screen = response.get(\"screen\", \"\")\n        stacktrace = None\n        if isinstance(status, int):\n            value_json = response.get('value', None)\n            if value_json and isinstance(value_json, basestring):\n                import json\n                try:\n                    value = json.loads(value_json)\n                    if len(value.keys()) == 1:\n                        value = value['value']\n                    status = value.get('error', None)\n                    if status is None:\n                        status = value[\"status\"]\n                        message = value[\"value\"]\n                        if not isinstance(message, basestring):\n                            value = message\n                            message = message.get('message')\n                    else:\n                        message = value.get('message', None)\n                except ValueError:\n                    pass\n    \n        exception_class = ErrorInResponseException\n        if status in ErrorCode.NO_SUCH_ELEMENT:\n            exception_class = NoSuchElementException\n        elif status in ErrorCode.NO_SUCH_FRAME:\n            exception_class = NoSuchFrameException\n        elif status in ErrorCode.NO_SUCH_WINDOW:\n            exception_class = NoSuchWindowException\n        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:\n            exception_class = StaleElementReferenceException\n        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:\n            exception_class = ElementNotVisibleException\n        elif status in ErrorCode.INVALID_ELEMENT_STATE:\n            exception_class = InvalidElementStateException\n        elif status in ErrorCode.INVALID_SELECTOR \\\n                or status in ErrorCode.INVALID_XPATH_SELECTOR \\\n                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:\n            exception_class = InvalidSelectorException\n        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:\n            exception_class = ElementNotSelectableException\n        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:\n            exception_class = ElementNotInteractableException\n        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:\n            exception_class = InvalidCookieDomainException\n        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:\n            exception_class = UnableToSetCookieException\n        elif status in ErrorCode.TIMEOUT:\n            exception_class = TimeoutException\n        elif status in ErrorCode.SCRIPT_TIMEOUT:\n            exception_class = TimeoutException\n        elif status in ErrorCode.UNKNOWN_ERROR:\n            exception_class = WebDriverException\n        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:\n            exception_class = UnexpectedAlertPresentException\n        elif status in ErrorCode.NO_ALERT_OPEN:\n            exception_class = NoAlertPresentException\n        elif status in ErrorCode.IME_NOT_AVAILABLE:\n            exception_class = ImeNotAvailableException\n        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:\n            exception_class = ImeActivationFailedException\n        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:\n            exception_class = MoveTargetOutOfBoundsException\n        elif status in ErrorCode.JAVASCRIPT_ERROR:\n            exception_class = JavascriptException\n        elif status in ErrorCode.SESSION_NOT_CREATED:\n            exception_class = SessionNotCreatedException\n        elif status in ErrorCode.INVALID_ARGUMENT:\n            exception_class = InvalidArgumentException\n        elif status in ErrorCode.NO_SUCH_COOKIE:\n            exception_class = NoSuchCookieException\n        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:\n            exception_class = ScreenshotException\n        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:\n            exception_class = ElementClickInterceptedException\n        elif status in ErrorCode.INSECURE_CERTIFICATE:\n            exception_class = InsecureCertificateException\n        elif status in ErrorCode.INVALID_COORDINATES:\n            exception_class = InvalidCoordinatesException\n        elif status in ErrorCode.INVALID_SESSION_ID:\n            exception_class = InvalidSessionIdException\n        elif status in ErrorCode.UNKNOWN_METHOD:\n            exception_class = UnknownMethodException\n        else:\n            exception_class = WebDriverException\n        if value == '' or value is None:\n            value = response['value']\n        if isinstance(value, basestring):\n            if exception_class == ErrorInResponseException:\n                raise exception_class(response, value)\n            raise exception_class(value)\n        if message == \"\" and 'message' in value:\n            message = value['message']\n    \n        screen = None\n        if 'screen' in value:\n            screen = value['screen']\n    \n        stacktrace = None\n        if 'stackTrace' in value and value['stackTrace']:\n            stacktrace = []\n            try:\n                for frame in value['stackTrace']:\n                    line = self._value_or_default(frame, 'lineNumber', '')\n                    file = self._value_or_default(frame, 'fileName', '<anonymous>')\n                    if line:\n                        file = \"%s:%s\" % (file, line)\n                    meth = self._value_or_default(frame, 'methodName', '<anonymous>')\n                    if 'className' in frame:\n                        meth = \"%s.%s\" % (frame['className'], meth)\n                    msg = \"    at %s (%s)\"\n                    msg = msg % (meth, file)\n                    stacktrace.append(msg)\n            except TypeError:\n                pass\n        if exception_class == ErrorInResponseException:\n            raise exception_class(response, message)\n        elif exception_class == UnexpectedAlertPresentException:\n            alert_text = None\n            if 'data' in value:\n                alert_text = value['data'].get('text')\n            elif 'alert' in value:\n                alert_text = value['alert'].get('text')\n            raise exception_class(message, screen, stacktrace, alert_text)\n>       raise exception_class(message, screen, stacktrace)\nE       selenium.common.exceptions.WebDriverException: Message: connection refused\n\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py:242: WebDriverException",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "set_environ",
+    "time" : {
+      "start" : 1552120778158,
+      "stop" : 1552120778159,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "set_up_test",
+    "time" : {
+      "start" : 1552120778159,
+      "stop" : 1552120848655,
+      "duration" : 70496
+    },
+    "status" : "broken",
+    "statusMessage" : "selenium.common.exceptions.WebDriverException: Message: connection refused\n\n",
+    "statusTrace" : "  File \"C:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\pluggy\\callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"C:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\_pytest\\fixtures.py\", line 929, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"C:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\_pytest\\fixtures.py\", line 784, in call_fixture_func\n    res = next(it)\n  File \"D:\\Development\\Amazon\\conftest.py\", line 27, in set_up_test\n    web_driver = webdriver_manager.create_driver(request.param, url)\n  File \"D:\\Development\\Amazon\\source\\utilities\\webdriver_manager.py\", line 11, in create_driver\n    driver = webdriver.Firefox(executable_path=const.FF_VALUE)\n  File \"C:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\firefox\\webdriver.py\", line 174, in __init__\n    keep_alive=True)\n  File \"C:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 157, in __init__\n    self.start_session(capabilities, browser_profile)\n  File \"C:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 252, in start_session\n    response = self.execute(Command.NEW_SESSION, parameters)\n  File \"C:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n  File \"C:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : true
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "selenium.common.exceptions.WebDriverException: Message: connection refused",
+    "statusTrace" : "request = <SubRequest 'set_up_test' for <Function test_tc001_invalid_login[ff]>>\n\n    @pytest.fixture(scope=\"function\", params=['Chrome','ff'], autouse=True)\n    def set_up_test(request):\n        url = helpers.get_url()\n>       web_driver = webdriver_manager.create_driver(request.param, url)\n\nconftest.py:27: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsource\\utilities\\webdriver_manager.py:11: in create_driver\n    driver = webdriver.Firefox(executable_path=const.FF_VALUE)\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\firefox\\webdriver.py:174: in __init__\n    keep_alive=True)\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:157: in __init__\n    self.start_session(capabilities, browser_profile)\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:252: in start_session\n    response = self.execute(Command.NEW_SESSION, parameters)\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:321: in execute\n    self.error_handler.check_response(response)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x08DBBD50>\nresponse = {'status': 500, 'value': '{\"value\":{\"error\":\"unknown error\",\"message\":\"connection refused\",\"stacktrace\":\"\"}}'}\n\n    def check_response(self, response):\n        \"\"\"\n        Checks that a JSON response from the WebDriver does not have an error.\n    \n        :Args:\n         - response - The JSON response from the WebDriver server as a dictionary\n           object.\n    \n        :Raises: If the response contains an error message.\n        \"\"\"\n        status = response.get('status', None)\n        if status is None or status == ErrorCode.SUCCESS:\n            return\n        value = None\n        message = response.get(\"message\", \"\")\n        screen = response.get(\"screen\", \"\")\n        stacktrace = None\n        if isinstance(status, int):\n            value_json = response.get('value', None)\n            if value_json and isinstance(value_json, basestring):\n                import json\n                try:\n                    value = json.loads(value_json)\n                    if len(value.keys()) == 1:\n                        value = value['value']\n                    status = value.get('error', None)\n                    if status is None:\n                        status = value[\"status\"]\n                        message = value[\"value\"]\n                        if not isinstance(message, basestring):\n                            value = message\n                            message = message.get('message')\n                    else:\n                        message = value.get('message', None)\n                except ValueError:\n                    pass\n    \n        exception_class = ErrorInResponseException\n        if status in ErrorCode.NO_SUCH_ELEMENT:\n            exception_class = NoSuchElementException\n        elif status in ErrorCode.NO_SUCH_FRAME:\n            exception_class = NoSuchFrameException\n        elif status in ErrorCode.NO_SUCH_WINDOW:\n            exception_class = NoSuchWindowException\n        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:\n            exception_class = StaleElementReferenceException\n        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:\n            exception_class = ElementNotVisibleException\n        elif status in ErrorCode.INVALID_ELEMENT_STATE:\n            exception_class = InvalidElementStateException\n        elif status in ErrorCode.INVALID_SELECTOR \\\n                or status in ErrorCode.INVALID_XPATH_SELECTOR \\\n                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:\n            exception_class = InvalidSelectorException\n        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:\n            exception_class = ElementNotSelectableException\n        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:\n            exception_class = ElementNotInteractableException\n        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:\n            exception_class = InvalidCookieDomainException\n        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:\n            exception_class = UnableToSetCookieException\n        elif status in ErrorCode.TIMEOUT:\n            exception_class = TimeoutException\n        elif status in ErrorCode.SCRIPT_TIMEOUT:\n            exception_class = TimeoutException\n        elif status in ErrorCode.UNKNOWN_ERROR:\n            exception_class = WebDriverException\n        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:\n            exception_class = UnexpectedAlertPresentException\n        elif status in ErrorCode.NO_ALERT_OPEN:\n            exception_class = NoAlertPresentException\n        elif status in ErrorCode.IME_NOT_AVAILABLE:\n            exception_class = ImeNotAvailableException\n        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:\n            exception_class = ImeActivationFailedException\n        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:\n            exception_class = MoveTargetOutOfBoundsException\n        elif status in ErrorCode.JAVASCRIPT_ERROR:\n            exception_class = JavascriptException\n        elif status in ErrorCode.SESSION_NOT_CREATED:\n            exception_class = SessionNotCreatedException\n        elif status in ErrorCode.INVALID_ARGUMENT:\n            exception_class = InvalidArgumentException\n        elif status in ErrorCode.NO_SUCH_COOKIE:\n            exception_class = NoSuchCookieException\n        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:\n            exception_class = ScreenshotException\n        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:\n            exception_class = ElementClickInterceptedException\n        elif status in ErrorCode.INSECURE_CERTIFICATE:\n            exception_class = InsecureCertificateException\n        elif status in ErrorCode.INVALID_COORDINATES:\n            exception_class = InvalidCoordinatesException\n        elif status in ErrorCode.INVALID_SESSION_ID:\n            exception_class = InvalidSessionIdException\n        elif status in ErrorCode.UNKNOWN_METHOD:\n            exception_class = UnknownMethodException\n        else:\n            exception_class = WebDriverException\n        if value == '' or value is None:\n            value = response['value']\n        if isinstance(value, basestring):\n            if exception_class == ErrorInResponseException:\n                raise exception_class(response, value)\n            raise exception_class(value)\n        if message == \"\" and 'message' in value:\n            message = value['message']\n    \n        screen = None\n        if 'screen' in value:\n            screen = value['screen']\n    \n        stacktrace = None\n        if 'stackTrace' in value and value['stackTrace']:\n            stacktrace = []\n            try:\n                for frame in value['stackTrace']:\n                    line = self._value_or_default(frame, 'lineNumber', '')\n                    file = self._value_or_default(frame, 'fileName', '<anonymous>')\n                    if line:\n                        file = \"%s:%s\" % (file, line)\n                    meth = self._value_or_default(frame, 'methodName', '<anonymous>')\n                    if 'className' in frame:\n                        meth = \"%s.%s\" % (frame['className'], meth)\n                    msg = \"    at %s (%s)\"\n                    msg = msg % (meth, file)\n                    stacktrace.append(msg)\n            except TypeError:\n                pass\n        if exception_class == ErrorInResponseException:\n            raise exception_class(response, message)\n        elif exception_class == UnexpectedAlertPresentException:\n            alert_text = None\n            if 'data' in value:\n                alert_text = value['data'].get('text')\n            elif 'alert' in value:\n                alert_text = value['alert'].get('text')\n            raise exception_class(message, screen, stacktrace, alert_text)\n>       raise exception_class(message, screen, stacktrace)\nE       selenium.common.exceptions.WebDriverException: Message: connection refused\n\nC:\\Users\\PriyaPramod\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py:242: WebDriverException",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "8940f7c713d84fb5",
+      "name" : "log",
+      "source" : "8940f7c713d84fb5.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "4daaeea0f92389d7",
+      "name" : "stdout",
+      "source" : "4daaeea0f92389d7.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "78009db12d990364",
+      "name" : "stderr",
+      "source" : "78009db12d990364.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 3,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_scripts"
+  }, {
+    "name" : "suite",
+    "value" : "test_login"
+  }, {
+    "name" : "host",
+    "value" : "TY-Pramod-Personal"
+  }, {
+    "name" : "thread",
+    "value" : "11244-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_scripts.test_login"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "set_up_test",
+    "value" : "'ff'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "32d1b627dc50b766.json",
+  "parameterValues" : [ "'ff'" ]
+}

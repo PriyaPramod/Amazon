@@ -1,0 +1,25 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "test_tc001_invalid_login[ff]",
+    "uid" : "939e338d2c47d56e",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "broken",
+    "time" : { },
+    "flaky" : false,
+    "parameters" : [ "'ff'" ]
+  }, {
+    "name" : "test_tc001_invalid_login[Chrome]",
+    "uid" : "67d8b78aa05e69d6",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "broken",
+    "time" : {
+      "start" : 1552187576755,
+      "stop" : 1552187602831,
+      "duration" : 26076
+    },
+    "flaky" : false,
+    "parameters" : [ "'Chrome'" ]
+  } ]
+}

@@ -21,7 +21,7 @@ def pytest_runtest_makereport(item, call):
     setattr(item, "rep_"+rep.when, rep)
     return rep
     
-@pytest.fixture(scope="function", params=['Chrome','ff'], autouse=True)
+@pytest.fixture(scope="function", params=['Chrome'], autouse=True)
 def set_up_test(request):
     url = helpers.get_url()  
     web_driver = webdriver_manager.create_driver(request.param, url)

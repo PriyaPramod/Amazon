@@ -10,8 +10,8 @@ def create_driver(browser_name, url):
     elif browser_name == "ff":
         driver = webdriver.Firefox(executable_path=const.FF_VALUE)
     
+    driver.maximize_window()
     driver.get(url)
     driver.implicitly_wait(helpers.get_itime())
-    driver.maximize_window()
     
     return driver

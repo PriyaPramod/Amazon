@@ -1,0 +1,37 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.WebDriverException: Message: connection refused",
+      "children" : [ {
+        "name" : "test_tc001_invalid_login[ff]",
+        "uid" : "939e338d2c47d56e",
+        "parentUid" : "c4d62ffe684cc7534fe6e7ab8d6a75d3",
+        "status" : "broken",
+        "time" : { },
+        "flaky" : false,
+        "parameters" : [ "'ff'" ]
+      } ],
+      "uid" : "c4d62ffe684cc7534fe6e7ab8d6a75d3"
+    }, {
+      "name" : "selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=72.0.3626.121)\n  (Driver info: chromedriver=73.0.3683.20 (8e2b610813e167eee3619ac4ce6e42e3ec622017),platform=Windows NT 10.0.17134 x86_64)",
+      "children" : [ {
+        "name" : "test_tc001_invalid_login[Chrome]",
+        "uid" : "67d8b78aa05e69d6",
+        "parentUid" : "4dab13f2d1f28cccec911c89e4e90c97",
+        "status" : "broken",
+        "time" : {
+          "start" : 1552187576755,
+          "stop" : 1552187602831,
+          "duration" : 26076
+        },
+        "flaky" : false,
+        "parameters" : [ "'Chrome'" ]
+      } ],
+      "uid" : "4dab13f2d1f28cccec911c89e4e90c97"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

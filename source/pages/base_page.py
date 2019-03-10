@@ -39,8 +39,7 @@ class BasePage:
     def send_keys(self, By, attribute_value, value_to_enter):
         try:
             web_element = self.find_element(By, attribute_value)
-            web_element.send_keys(value_to_enter)
-            print("Entered the value: ", value_to_enter)
+            web_element.send_keys(str(value_to_enter))
         except Exception:
             print("Unable to enter the value to the web element: ", Exception)
             

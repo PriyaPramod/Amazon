@@ -11,5 +11,5 @@ class MyClass():
         allure_command = "allure generate " +const.JSON_PATH+ " --output " +const.HTML_PATH + time_stamp
         os.popen(allure_command)
 
-commands = ['-n', '2', '--alluredir', const.JSON_PATH]
+commands = ['-s','--alluredir', const.JSON_PATH]
 pytest.main(commands, plugins=[MyClass()])

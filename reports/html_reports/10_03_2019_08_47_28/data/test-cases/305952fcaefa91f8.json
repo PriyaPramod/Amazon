@@ -1,0 +1,137 @@
+{
+  "uid" : "305952fcaefa91f8",
+  "name" : "test_tc001_invalid_login[Chrome]",
+  "fullName" : "test_scripts.test_login#test_tc001_invalid_login[Chrome]",
+  "historyId" : "48659cc15e87733edc77e549c598afbe",
+  "time" : {
+    "start" : 1552187835709,
+    "stop" : 1552187846302,
+    "duration" : 10593
+  },
+  "status" : "passed",
+  "flaky" : true,
+  "beforeStages" : [ {
+    "name" : "set_environ",
+    "time" : {
+      "start" : 1552187823515,
+      "stop" : 1552187823515,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "set_up_test",
+    "time" : {
+      "start" : 1552187823515,
+      "stop" : 1552187835708,
+      "duration" : 12193
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "9afd2ecfd9383a87",
+      "name" : "log",
+      "source" : "9afd2ecfd9383a87.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "66e8af5f81a25cd5",
+      "name" : "stdout",
+      "source" : "66e8af5f81a25cd5.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "f3e8bad037961d7",
+      "name" : "stderr",
+      "source" : "f3e8bad037961d7.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ {
+    "name" : "set_up_test::0",
+    "time" : {
+      "start" : 1552187846304,
+      "stop" : 1552187848669,
+      "duration" : 2365
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_scripts"
+  }, {
+    "name" : "suite",
+    "value" : "test_login"
+  }, {
+    "name" : "host",
+    "value" : "TY-Pramod-Personal"
+  }, {
+    "name" : "thread",
+    "value" : "7920-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_scripts.test_login"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "set_up_test",
+    "value" : "'Chrome'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "d6b14dc7afdf7ed5",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=72.0.3626.121)\n  (Driver info: chromedriver=73.0.3683.20 (8e2b610813e167eee3619ac4ce6e42e3ec622017),platform=Windows NT 10.0.17134 x86_64)",
+      "time" : {
+        "start" : 1552187576755,
+        "stop" : 1552187602831,
+        "duration" : 26076
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "305952fcaefa91f8.json",
+  "parameterValues" : [ "'Chrome'" ]
+}
