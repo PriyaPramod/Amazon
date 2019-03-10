@@ -1,0 +1,3 @@
+"Status","Name","Duration in ms","Description"
+"broken","test_scripts.test_login#test_tc001_invalid_login[ff]","",""
+"passed","test_scripts.test_login#test_tc001_invalid_login[Chrome]","24892",""
